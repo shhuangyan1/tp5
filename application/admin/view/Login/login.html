@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理登录</title>
     <!-- import CSS -->
     <link rel="stylesheet" href="/static/css/element.css">
     <!-- import Vue before Element -->
@@ -11,21 +14,46 @@
     <script src="/static/js/vue-resource.js"></script>
 </head>
 <body>
-<div id="app">
-  <el-form ref="form" :model="form" label-width="80px">
-      <el-form-item label="用户名">
-          <el-input v-model="form.name"></el-input>
-      </el-form-item>
-      <el-form-item label="密码">
-          <el-input v-model="form.pwd" show-password></el-input>
-      </el-form-item>
-      <el-form-item>
-          <el-button type="primary" @click="onSubmit">登录</el-button>
-      </el-form-item>
-  </el-form>
+<div id="app" style="background-image: url(/static/img/84.jpg);">
+    <el-row>
+
+        <el-col :span="4" :offset="4" :xs="8" style="margin-top: 200px;">
+            <h1 style="margin-left:20px;font-size:2.5em;font-family: 宋体">神州管理系统</h1>
+            <el-form ref="form" :model="form" label-width="80px">
+                <el-form-item label="用户名">
+                    <el-input v-model="form.name"></el-input>
+                </el-form-item>
+                <el-form-item label="密码">
+                    <el-input v-model="form.pwd" show-password></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="success" @click="onSubmit">登录</el-button>
+                </el-form-item>
+            </el-form>
+        </el-col>
+    </el-row>
+
 
 </div>
 </body>
+<style>
+    #app{
+        position:fixed;
+        top: 0;
+        left: 0;
+        width:100%;
+        height:100%;
+        min-width: 1000px;
+        z-index:-10;
+        zoom: 1;
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+        background-position: center 0;
+    }
+</style>
 <script>
     new Vue({
         el: '#app',
@@ -61,4 +89,5 @@
         }
     })
 </script>
+
 </html>

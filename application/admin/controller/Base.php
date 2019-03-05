@@ -12,7 +12,7 @@ namespace app\admin\controller;
 use think\Controller;
 use Think\Hook;
 use think\Session;
-
+header("Content-type:text/html;charset=utf-8");
 class Base extends Controller
 {
     protected $controller_name;//控制器

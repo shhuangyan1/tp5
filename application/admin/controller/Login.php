@@ -48,4 +48,12 @@ class Login extends Base
         Session::set('admin_info',$info);
         helperService::returnJson(['code'=>200,'msg'=>'验证成功','data'=>['url'=>url('admin/Index/index')]]);
     }
+
+    /**
+     * 退出登录
+     */
+    public function loginOut(){
+        Session::delete('admin_info');
+        $this->redirect('login');
+    }
 }

@@ -1,10 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="/static/css/element.css">
+    <!-- import Vue before Element -->
+    <script src="/static/js/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="/static/js/element.js"></script>
+    <script src="/static/js/vue-resource.js"></script>
 </head>
 <body>
-This is FirstPage
+    <div id="app">
+        <div class="top">
+            <el-row type="flex" class="row-bg">
+                <el-col :span="20"><div class="grid-content bg-purple-light"><h1>后台管理系统</h1></div></el-col>
+                <el-col :span="4"><div class="grid-content bg-purple" ><h3>退出登录</h3></div></el-col>
+            </el-row>
+        </div>
+
+    </div>
+
+
 </body>
+<script>
+    new Vue({
+        el: "#app",
+
+    })
+</script>
+
+
 </html>
+<style>
+    .bg-purple-light{
+        background-color: #d43f3a;
+    }
+    .bg-purple{
+        background-color: #0BB20C;
+    }
+    div{
+        margin: 0;
+        padding: 0;
+    }
+
+</style>
