@@ -16,12 +16,67 @@
 <body>
     <div id="app">
         <div class="top">
-            <el-row type="flex" class="row-bg">
-                <el-col :span="20"><div class="grid-content bg-purple-light"><h1>后台管理系统</h1></div></el-col>
-                <el-col :span="4"><div class="grid-content bg-purple" ><h3>退出登录</h3></div></el-col>
+            <el-row>
+                <el-col :span="18" :offset="2">
+                    <h1 style="color:#fff;">神州系统后台</h1>
+                </el-col>
+                <el-col :span="4"><h3 style="color:#fff;"><a href="{:U('Login/loginOut')}">退出系统</a></h3></el-col>
             </el-row>
         </div>
+        <div class="main">
+            <el-row>
+                <el-col :span="4">
+                    <div class="left" :style="contentStyleObj">
+                        <el-row class="tac">
+                            <!--{foreach $menuList as $menuInfo}-->
+                            <!--<li class="layui-nav-item">-->
+                                <!--<a class="parentMenu" href="javascript:;"><i class="fa fa-plug layui-icon" aria-hidden="true">{$menuInfo['icon']}</i><span style="padding-left: .4rem">{$menuInfo['menu_name']}</span></a>-->
+                                <!--<dl class="layui-nav-child">-->
+                                    <!--&lt;!&ndash;&#xe602;&ndash;&gt;-->
+                                    <!--{foreach $menuInfo['child'] as $menuChild}-->
+                                    <!--<dd>-->
+                                        <!--<a  href="javascript:;" data-url="{:url($menuChild.controller_name.'/'.$menuChild['action_name'])}" data-icon="fa-user" data-title="{$menuChild['menu_name']}" kit-target data-id='{$menuChild.menu_id}'><i class="layui-icon">{$menuChild['icon']}</i><span style="padding-left: .4rem" >{$menuChild['menu_name']}</span></a>-->
+                                    <!--</dd>-->
+                                    <!--{/foreach}-->
+                                <!--</dl>-->
+                            <!--</li>-->
+                            <!--{/foreach}-->
+                            <el-col>
+                                <el-menu
+                                        default-active="2"
+                                        class="el-menu-vertical-demo"
+                                        @open="handleOpen"
+                                        @close="handleClose"
+                                        background-color="#545c64"
+                                        text-color="#fff"
+                                        active-text-color="#ffd04b">
+                                    {foreach $menuList as $menuInfo}
+                                    <el-submenu index="{$menuInfo.menu_id}">
+                                        <template slot="title">
+                                            <i class="el-icon-menu"></i>
+                                            <span>{$menuInfo['menu_name']}</span>
+                                        </template>
+                                        <el-menu-item-group>
+                                            {foreach $menuInfo['child'] as $menuChild}
+                                            <el-menu-item index="{$menuChild.menu_id}">{$menuChild['menu_name']}</el-menu-item>
+                                            {/foreach}
+                                        </el-menu-item-group>
+                                    </el-submenu>
+                                    {/foreach}
 
+                                    </el-submenu>
+                                </el-menu>
+                            </el-col>
+                        </el-row>
+                    </div>
+                </el-col>
+                <el-col :span="20">
+                    <div class="content" :style="contentStyleObj">
+                        这里是内容。。
+                    </div>
+                </el-col>
+            </el-row>
+        </div>
     </div>
 
 
@@ -29,6 +84,26 @@
 <script>
     new Vue({
         el: "#app",
+        data: {
+            contentStyleObj:{
+                height:''
+            }
+        },
+        methods:{
+            getHeight(){
+                this.contentStyleObj.height=window.innerHeight-100+'px';
+            },
+        },
+
+        created(){
+            window.addEventListener('resize', this.getHeight);
+            this.getHeight()
+        },
+
+        destroyed(){
+            window.removeEventListener('resize', this.getHeight)
+        },
+
 
     })
 </script>
@@ -36,15 +111,26 @@
 
 </html>
 <style>
-    .bg-purple-light{
-        background-color: #d43f3a;
+    html,body,div{
+        margin:0px;
+        padding:0px;
     }
-    .bg-purple{
-        background-color: #0BB20C;
+    .top{
+        height: 100px;
+        top: 0;
+        left: 0;
+        width:100%;
+        /*background-image: url("/static/img/34.jpg");*/
+        background-color: #545c64;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
-    div{
-        margin: 0;
-        padding: 0;
+    .left{
+        background-color: #545c64;
     }
+    .content{
+
+    }
+
 
 </style>
