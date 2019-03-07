@@ -42,7 +42,7 @@ class Base extends Controller
             $this->admin_id = Session::get('admin_info')['admin_id'];
             $this->admin_info = Session::get('admin_info');
         }else{
-            redirect('Login/login');
+            $this->redirect('Login/login');
         }
     }
 

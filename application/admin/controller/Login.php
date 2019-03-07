@@ -15,6 +15,12 @@ use think\Session;
 
 class Login extends Base
 {
+    public function _initialize()
+    {
+        //获取类和方法
+        $this->getControllerAndAction();
+    }
+
 
     /**
      * 登录页面

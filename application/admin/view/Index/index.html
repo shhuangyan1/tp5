@@ -20,7 +20,7 @@
                 <el-col :span="18" :offset="2">
                     <h1 style="color:#fff;">神州系统后台</h1>
                 </el-col>
-                <el-col :span="4"><h3 style="color:#fff;"><a href="{:U('Login/loginOut')}">退出系统</a></h3></el-col>
+                <el-col :span="4"><h3 style="color:#fff;"><a href="{:url('Login/loginOut')}">退出系统</a></h3></el-col>
             </el-row>
         </div>
         <div class="main">
@@ -28,19 +28,6 @@
                 <el-col :span="4">
                     <div class="left" :style="contentStyleObj">
                         <el-row class="tac">
-                            <!--{foreach $menuList as $menuInfo}-->
-                            <!--<li class="layui-nav-item">-->
-                                <!--<a class="parentMenu" href="javascript:;"><i class="fa fa-plug layui-icon" aria-hidden="true">{$menuInfo['icon']}</i><span style="padding-left: .4rem">{$menuInfo['menu_name']}</span></a>-->
-                                <!--<dl class="layui-nav-child">-->
-                                    <!--&lt;!&ndash;&#xe602;&ndash;&gt;-->
-                                    <!--{foreach $menuInfo['child'] as $menuChild}-->
-                                    <!--<dd>-->
-                                        <!--<a  href="javascript:;" data-url="{:url($menuChild.controller_name.'/'.$menuChild['action_name'])}" data-icon="fa-user" data-title="{$menuChild['menu_name']}" kit-target data-id='{$menuChild.menu_id}'><i class="layui-icon">{$menuChild['icon']}</i><span style="padding-left: .4rem" >{$menuChild['menu_name']}</span></a>-->
-                                    <!--</dd>-->
-                                    <!--{/foreach}-->
-                                <!--</dl>-->
-                            <!--</li>-->
-                            <!--{/foreach}-->
                             <el-col>
                                 <el-menu
                                         default-active="2"
@@ -130,6 +117,16 @@
     }
     .content{
 
+    }
+    a{
+        text-decoration: none;
+
+    }
+    a:link{
+        color:#545c64;
+    }
+    a:visited{
+        color:#fff;
     }
 
 

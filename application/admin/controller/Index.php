@@ -8,6 +8,7 @@
 namespace app\admin\controller;
 
 use app\common\model\Menu;
+use think\Session;
 class Index extends Base{
 
     public function index(){
